@@ -96,7 +96,6 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class PinScreen extends StatelessWidget {
-
   void _navigateToEmailScreen(BuildContext context) {
     Navigator.push(
       context,
@@ -128,22 +127,18 @@ class PinScreen extends StatelessWidget {
           onPressed: () {
             _navigateToEmailScreen(context);
           },
-          child: Text(
-            'Enviar'
-          ),
+          child: Text('Enviar'),
         ),
       ])),
     );
   }
 }
 
-
 class EmailScreen extends StatelessWidget {
-
-  void _navigateToPinScreen(BuildContext context) {
+  void _navigateToChatScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => EmailScreen()),
+      MaterialPageRoute(builder: (context) => ChatScreen()),
     );
   }
 
@@ -157,23 +152,72 @@ class EmailScreen extends StatelessWidget {
       ),
       body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              'Insíra seu Email',
-              style: TextStyle(fontSize: 24.0),
-            ),
+        Text(
+          'Insíra seu Email',
+          style: TextStyle(fontSize: 24.0),
+        ),
+        Container(
+          width: 300,
+          child: TextField(
+            decoration: InputDecoration(hintText: 'email'),
+          ),
+        ),
+        RaisedButton(
+          onPressed: () {
+            _navigateToChatScreen(context);
+          },
+          child: Text('Enviar'),
+        ),
+      ])),
+    );
+  }
+}
+
+class ChatScreen extends StatelessWidget {
+  void _navigateToPinScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EmailScreen()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text('Tela de Chat'),
+      ),
+      body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children:[
             Container(
-              width: 300,
-              child: TextField(
-                decoration: InputDecoration(hintText: 'email'),
+              height: 570,
+                decoration: BoxDecoration(
+                  color: const Color(0xff7c94b6)
+                ),
+              child:
+                ListView()
               ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                _navigateToPinScreen(context);
-              },
-              child: Text(
-                  'Enviar'
-              ),
+            Container(
+              height: 40,
+              child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Expanded(
+                      child: TextField(),
+                    ),
+                    Expanded(
+                        child: FlatButton(
+                          color: Colors.blue,
+                          splashColor: Colors.blueAccent,
+                          child: Text(
+                            "Enviar",
+                          ),
+                    ))
+                  ]),
             ),
           ])),
     );
