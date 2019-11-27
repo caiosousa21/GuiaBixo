@@ -4,18 +4,6 @@ import 'EmailScreen.dart';
 class ChatScreen extends StatelessWidget {
   TextEditingController userInput = new TextEditingController();
   List<ListTile> tiles = new List<ListTile>();
-  Widget getListView() {
-    var listView = ListView(
-      children: <Widget>[
-        ListTile(
-          leading: Image.asset('Resources/bot.png', height: 40, width: 40),
-          title: Text("Plínio"),
-          subtitle: Text("Olá! Sou Plínio, seu assistente virtual!"),
-        ),
-      ],
-    );
-    return listView;
-  }
 
   Widget _buildTileItem(BuildContext context, int index) {
     if (tiles.length == 0){
@@ -53,21 +41,6 @@ class ChatScreen extends StatelessWidget {
       subtitle: Text("Olá! Sou Plínio, seu assistente virtual!"),
     ));
   }
-
-  Widget getNewMessage(String input) {
-    var listView = ListView(
-      children: <Widget>[
-        ListTile(
-            title: Text("Usuário"),
-            subtitle: Text(input),
-            trailing: Icon(Icons.wb_sunny)
-        ),
-      ],
-    );
-    return listView;
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
