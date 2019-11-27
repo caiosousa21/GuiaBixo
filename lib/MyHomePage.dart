@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:guiabixo/ChatScreen.dart';
+import 'ChatScreen.dart';
 
 import 'PinScreen.dart';
 
