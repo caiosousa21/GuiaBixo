@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guiabixo/ChatScreen.dart';
 
 import 'PinScreen.dart';
 
@@ -26,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _navigateToPinScreen(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PinScreen()),
+      MaterialPageRoute(builder: (context) => ChatScreen()),
     );
   }
 
